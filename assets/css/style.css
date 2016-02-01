@@ -1,0 +1,117 @@
+#note {
+    font-family: cursive;
+    font-size: 35px;
+    font-weight: bold;
+    color: yellow;
+    letter-spacing: 5px;
+    position: absolute;
+    top: 2px;
+    left: 700px;
+}
+
+body {
+    background-image: url('http://bsk-travel.by/templates/plemminsk/images/1.1.jpg');
+    background-size: 100%;
+}
+
+#text {
+    position: absolute;
+    left: 125px;
+    top: 60px;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+}
+
+#header {
+    height: 200px;
+    width: 100%;
+}
+
+#continent {
+    font-size: 15px;
+    width: 200px;
+    height: 35px;
+    position: absolute;
+    left: 125px;
+    top: 125px;
+}
+
+#country {
+    font-size: 15px;
+    width: 200px;
+    height: 35px;
+    position: absolute;
+    left: 550px;
+    top: 125px;
+}
+
+#city {
+    font-size: 15px;
+    width: 200px;
+    height: 35px;
+    position: absolute;
+    left: 1000px;
+    top: 125px;
+}
+
+#main {
+    width: 1100px;
+    height: 200px;
+    position: absolute;
+    left: 115px;
+    top: 350px;
+}
+
+#favor {
+    font-size: 15px;
+    width: 200px;
+    height: 35px;
+    position: absolute;
+    left: 1000px;
+    top: 30px;
+    font-family: century gothic;
+}
+
+#addToFavor {
+    height: 35px;
+    position: absolute;
+    left: 565px;
+    top: 290px;
+    font-size: 15px;
+    font-family: century gothic;
+}
+
+#removeFromFavor {
+    height: 35px;
+    position: absolute;
+    left: 540px;
+    top: 290px;
+    font-size: 15px;
+    font-family: century gothic;
+}
+
+#test {
+    position:absolute;
+    top: 180px;
+    margin-left: 100px;
+    margin-right: 100px;
+    font-family: century gothic;
+    font-style: italic;
+}
+
+#fBird {
+    position: absolute;
+    left: 300px;
+}
+
+#sBird {
+    position: absolute;
+    left: 650px;
+}
+
+#tBird {
+    position: absolute;
+    left: 950px;
+}

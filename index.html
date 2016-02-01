@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="tourism" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <title>Tourism</title>
+</head>
+<body ng-controller="MainCtrl">
+<div id="header">
+    <br><br>
+    <br><h1 id="note" ng-click="setCurrentContinent('Europe')">Travelling</h1><br><br>
+
+    <select id="favor" ng-model="curCity" ng-change="changeFavCity()" class="btn btn-success">
+        <option></option>
+        <option id="favourite" ng-repeat="favourite in favourites" value="{{favourite.city}}">
+            {{favourite.country}}, {{favourite.city}}
+        </option>
+    </select>
+
+    <h1 id="text">Select a location you would like to visit:</h1><br>
+
+    <select id="continent" ng-model="curCont" ng-change="changeContinent()" class="btn btn-info">
+        <option ng-repeat="continent in continents"
+                value="{{continent.name}}">{{continent.name}}</option>
+    </select>
+
+    <select id="country" ng-model="curCountry" ng-change="changeCountry()" class="btn btn-info">
+        <option ng-repeat="country in countries | filter:{continent:curCont}">{{country.name}}</option>
+    </select>
+
+    <select id="city" ng-model="curCity" class="btn btn-info">
+          <option ng-repeat="city in cities | filter:{country:curCountry}">{{city.name}}</option>
+    </select>
+
+    <br><br><br><br><br>
+
+    <button id="addToFavor" ng-click="getChosenLocations(curCity, curCountry)" ng-hide="appearButton(curCity, curCountry)"
+          ng-show="canAdd(curCity)" class="btn btn-success"> Add to favourites   <img src="assets/img/photo/add.png" height="20px" width="20px">
+    </button>
+
+    <button id="removeFromFavor" ng-click="removeChosenLocations(curCity)" class="btn btn-warning"
+          ng-hide="canAdd(curCity)"> Remove from favourites   <img src="assets/img/photo/add.png" height="20px" width="20px">
+    </button>
+</div>
+
+<div ng-hide="curCountry">
+    <img id="fBird" src="http://s2.pic4you.ru/allimage/y2013/05-30/12216/3503678.png" style="width: 130px; height: 76px;">
+    <img id="sBird" src="http://mskchaika.ru/d/611017/t/v352/images/chayka.png" style="width: 50px; height: 80px;">
+    <img id="tBird" src="http://www.playcast.ru/uploads/2015/06/08/13900301.png" style="width: 70px; height: 73px;">
+</div>
+
+<div id="main" ng-model="curPhoto">
+    <img ng-hide="curCity" src="assets/img/photo/tr1.png" style="width: 1100px; height: 268px;">
+    <img class="img-circle" ng-show="curCity" ng-repeat="photo in photos | filter:{city:curCity}" src="{{photo.link}}" style="float: left; margin-right: 15px; margin-left:15px; margin-top:5px; width: 330px; height: 257px;">
+</div>
+
+<div id="test">{{info}}</div>
+
+<div id="footer">
+
+</div>
+
+<script>
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+<script src="assets/libs/jquery.min.js"></script>
+<script src="assets/libs/angular.min.js"></script>
+
+<script type="text/javascript" src="app/components/script.js"></script>
+
+</body>
+</html>
