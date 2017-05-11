@@ -13,7 +13,6 @@
         {"name": "Canada", "id": 12, "continent": "North America"},
         {"name": "Chile", "id": 13, "continent": "South America"},
         {"name": "China", "id": 14, "continent": "Asia"},
-        {"name": "Congo", "id": 15, "continent": "Africa"},
         {"name": "Costa Rica", "id": 16, "continent": "Central America"},
         {"name": "Croatia", "id": 17, "continent": "Europe"},
         {"name": "Cuba", "id": 18, "continent": "Caribbean"},
