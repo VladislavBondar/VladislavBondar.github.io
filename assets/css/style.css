@@ -1,6 +1,6 @@
 @font-face {
   font-family: Flow;
-  src: url(../fonts/Flow.otf);
+  src: url(/assets/Flow.otf);
 }
 
 #note {
