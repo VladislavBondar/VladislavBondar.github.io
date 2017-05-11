@@ -47,14 +47,21 @@ angular.module('tourism', [])
             var obj =
             {country: country, city: city};
             $scope.favourites.push(obj);
+            document.getElementById("favor").style.cssText = "opacity:1";
         }
 
         function removeChosenLocations(city) {
-            for (i = 0; i < $scope.favourites.length; i++) {
+            for (var i = 0; i < $scope.favourites.length; i++) {
                 if (city == $scope.favourites[i].city) {
                     $scope.favourites.splice(i, 1);
-                    return 0;
+                    //return 0;
                 }
+            }
+
+            console.log($scope.favourites.length);
+
+            if ($scope.favourites.length == 0) {
+                document.getElementById("favor").style.cssText = "opacity:0";
             }
         }
 
@@ -89,6 +96,7 @@ angular.module('tourism', [])
 
         $scope.changeCountry = function () {
             $scope.curCity = "";
+            $scope.changeBack();
             getWikiInfo($scope.curCountry);
         }
 
@@ -98,16 +106,33 @@ angular.module('tourism', [])
             test.innerHTML = "";
         }
 
+        $scope.changeBack = function() {
+          document.getElementById("backg").style.cssText = "background-image: url('" +
+            "https://static1.squarespace.com/static/55069c3ce4b07d2891982afb/5506a236e4b01b33c9762096/560f44f5e4b0011a619e5a2c/1443841470675/Gray+Background+Image.jpg?format=2500w');";
+          //https://avatanplus.com/files/resources/mid/581716c60a9291581a30f59b.jpg
+
+        }
+
         var getWikiInfo = function(countryName) {
-            $scope.url = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exsentences=4&titles="+countryName+"&rvprop=content&callback=JSON_CALLBACK";
+            $scope.url = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=" +
+              "json&exsentences=3&titles="+countryName+"&rvprop=content&callback=JSON_CALLBACK";
+
             $http({
                 url: $scope.url,
                 method: 'jsonp'
             }).success(function(response) {
                 for (item in response.query.pages){
-                    console.log(response.query.pages[item].extract);
+                  //  console.log(response.query.pages[item].extract);
                     $scope.info = response.query.pages[item].extract;
-                    test.innerHTML = response.query.pages[item].extract;
+
+                    var reg = new RegExp('<p', 'g');
+                    var regSec = new RegExp('.</p', 'g');
+
+                    $scope.tempInfo = $scope.info.replace(reg, " ");
+                    $scope.result = $scope.tempInfo.replace(regSec, " ");
+                    console.log($scope.result);
+
+                    test.innerHTML = $scope.result;
                 }
             });
         }
