@@ -58,8 +58,6 @@ angular.module('tourism', [])
                 }
             }
 
-            console.log($scope.favourites.length);
-
             if ($scope.favourites.length == 0) {
                 document.getElementById("favor").style.cssText = "opacity:0";
             }
@@ -90,6 +88,7 @@ angular.module('tourism', [])
 
         $scope.changeContinent = function () {
             $scope.curCountry = "";
+            $scope.getBack();
             $scope.curCity = "";
             test.innerHTML = "";
         }
@@ -109,6 +108,13 @@ angular.module('tourism', [])
         $scope.changeBack = function() {
           document.getElementById("backg").style.cssText = "background-image: url('" +
             "https://static1.squarespace.com/static/55069c3ce4b07d2891982afb/5506a236e4b01b33c9762096/560f44f5e4b0011a619e5a2c/1443841470675/Gray+Background+Image.jpg?format=2500w');";
+          //https://avatanplus.com/files/resources/mid/581716c60a9291581a30f59b.jpg
+
+        }
+
+        $scope.getBack = function() {
+          document.getElementById("backg").style.cssText = "background-image: url('" +
+            "http://dingyue.nosdn.127.net/RgSSKqAeVgkjKmhc5h=dIgiedKqx6D34P2hKBrT9H8SuW1474191711912compressflag.jpg');";
           //https://avatanplus.com/files/resources/mid/581716c60a9291581a30f59b.jpg
 
         }
